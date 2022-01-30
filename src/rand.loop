@@ -1,0 +1,25 @@
+var seed = 314
+
+var rand_internal = fn() {
+    seed = (8121 * seed + 28411) % 134456
+    return seed
+}
+
+var rand_int = fn(a, b) {
+    return rand_internal() % (b-a) + a
+}
+
+var rand_array = fn(len, a, b) {
+    var arr = []
+    var i = 0
+    for (i < len) {
+        arr.add(rand_int(a, b))
+        i = i + 1
+    }
+    return arr
+}
+
+export {
+    "int": rand_int,
+    "array": rand_array
+}

@@ -1,0 +1,16 @@
+export fn(arr) {
+    var i = 1
+    for (i < arr.length()) {
+        var j = i - 1
+        for (j > -1) {
+            if (arr[j] > arr[j+1]) {
+                var x = arr[j] + 0  // +0 otherwise it doesn't work!
+                arr[j] = arr[j+1]
+                arr[j+1] = x
+            }
+            j = j - 1
+        }
+        i = i + 1
+    }
+    return arr  // otherwise it doesn't work!
+}

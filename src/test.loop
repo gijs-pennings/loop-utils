@@ -1,0 +1,28 @@
+import "./rand.loop" as random  // "rand" doesn't work!
+import "./sort.loop" as sort
+
+var is_sorted = fn(arr) {
+    var i = 1
+    for (i < arr.length()) {
+        if (arr[i-1] > arr[i]) {
+            return false
+        }
+        i = i + 1
+    }
+    return true
+}
+
+var k = 0
+for (k < 5) {
+    var a = random["array"](25, 0, 100)
+    println(a)
+
+    sort(a)
+    println(a)
+
+    print("valid: ")
+    print(is_sorted(a))
+
+    print("\n\n")
+    k = k + 1
+}
